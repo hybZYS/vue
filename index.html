@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			input[type="text"]{
+				width: 100px;
+				height: 10px;
+				line-height: 30px;
+				padding: 0 5px;
+				font-size: 18px;
+				border: 1px solid #ff0000;
+				display: block;
+				margin: 10px auto;
+			}
+			input[type="button"]{
+				background: #F99;
+				border: none;
+				border-radius: 5px;
+				padding: 5px 5px;
+				font-size: 15px;
+				color: #ffffff;
+				display: block;
+				margin: 5px auto;
+			}
+		</style>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="./css/one.css" />
+	</head>
+	<body>
+		<audio controls="controls" loop="loop">
+			<source src="./小幸运%20.mp3" type="audio/ogg"></source>
+		</audio>
+		<div id="app">
+			<input type="text" style="height: 60px;width: 200px" id="inputID" name="" value="" v-model="inputNumber"/><br />
+			<input type="button" @click="calc1()" style="height: 90px;width: 150px;" name="" id="" value="二进制转十进制" />
+			<input type="button" @click="calc2()" style="height: 90px;width: 150px" name="" id="" value="十进制转二进制" /><br />
+			<br />
+			<input type="button" @click="calc3()" style="height: 90px;width: 150px" name="" id="" value="二进制转八进制" />
+			<input type="button" @click="calc4()" style="height: 90px;width: 150px" name="" id="" value="八进制转二进制" /><br />
+			<br />
+			<input type="button" @click="calc5()" style="height: 90px;width: 150px" name="" id="" value="二进制转十六进制" />
+			<input type="button" @click="calc6()" style="height: 90px;width: 150px" name="" id="" value="十六进制转二进制" /><br />
+			<br />
+		</div>
+		<script type="text/javascript">
+			let v = new Vue({
+				el:"#app",
+				data:{
+					inputNumber:0,
+					outputNumber:0
+				},
+				methods:{
+					calc1(){
+						v.outputNumber = parseInt(v.inputNumber,2);
+						alert("转换结果为："+v.outputNumber);
+					},
+					calc2(){
+						v.outputNumber = parseInt(v.inputNumber,10).toString(2);
+						alert("转换结果为："+v.outputNumber);
+					},
+					calc3(){
+						v.outputNumber = parseInt(v.inputNumber,2).toString(8);
+						alert("转换结果为："+v.outputNumber)
+					},
+					calc4(){
+						v.outputNumber = parseInt(v.inputNumber,8).toString(2);
+						alert("转换结果为："+v.outputNumber)
+					},
+					calc5(){
+						v.outputNumber = parseInt(v.inputNumber,2).toString(16);
+						alert("转换结果为："+v.outputNumber)
+					},
+					calc6(){
+						v.outputNumber = parseInt(v.inputNumber,16).toString(2);
+						alert("转换结果为："+v.outputNumber)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
